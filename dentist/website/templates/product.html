@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Products - Glempshoppe {% endblock %}
+{% block meta_discription %} Products page of Glempshoppe {% endblock %}
+{% block content %}
+
+
+  <!-- ***** Breadcrumb Area Start ***** -->
+  <div class="breadcumb-area" style= "
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url('/static/website/img/bg-img/bg1.png');
+  background-size: 100%;
+  ">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">Products</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ***** Blog Area Start ***** -->
+<section class="dento-blog-area section-padding-100-0 clearfix">
+  <div class="container">
+    <div class="row">
+      <!-- Section Heading -->
+      <div class="col-12">
+        <div class="section-heading text-center">
+          <h2>The Latest Products</h2>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dento-blog-area section-padding-100-0 clearfix">
+  <div class="container">
+    <div class="row">
+      <!-- Section Heading -->
+      <div class="col-12">
+        
+        <div class="row">
+          {% for i in response %}
+        
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="single-blog-item-h mb-100">
+            <a style="cursor: pointer;" data-toggle="modal" data-target="#exampleModalCenter" data-name="{{i.title}}" data-description="{{i.description}}"  data-image="{{i.image}}" data-rating="{{i.rating.rate}}" data-count="{{i.rating.count}}" data-price="{{i.price}}"
+            title="{{i.title}}" description="{{i.description}}" image="{{i.image}}" rating="{{i.rating.rate}}" count="{{i.rating.count}}" price="{{i.price}}"
+            class="items">
+              <center><img src="{{i.image}}" alt="" style="width:200px;
+                height:150px;" class="mt-50"></center>
+            
+            <!-- Blog Content -->
+            <div class="blog-content">
+              <a class="post-title" style="white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              max-width: 100ch; font-size: 15px; color: #8d8741;">{{i.title}}</a>
+              
+              <div class="post-meta">
+                <a title="rating"><i class="icon_clock_alt" ></i> <i class="fa fa-star"></i> {{i.rating.rate}}</a>
+                <a title="sold"><i class="icon_chat_alt"></i> {{i.rating.count}} sold</a>
+                <a title="price"><i class="icon_chat_alt"></i> <i class=" fa fa-usd"></i>{{i.price}} </a>
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 style="color: #859DBD;" class="modal-title" id="title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div ><center><img id="image" src="" alt="" style="width:200px;"></center></div>
+          <hr>
+          <div class="row" style="color: #8d8741;">
+            <div class="col-12 col-md-6 col-lg-4" title="sold"><i class="icon_chat_alt" id="count"></i> sold</div>
+            <div class="col-12 col-md-6 col-lg-4" title="rating"><i class="icon_clock_alt" ></i> <i class="fa fa-star" id="rating"></i> </div>
+            <div class="col-12 col-md-6 col-lg-4" title="price"><i class="icon_chat_alt"></i> <i class=" fa fa-usd" id="price"></i> </div>
+          </div>
+          <p  style="color: #859DBD;" id="description"></p>
+          
+      </div>
+      <div class="mb-15">
+        <center><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></center>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-100 " style=" display: flex; justify-content: center;"><a href="{% url 'home' %}#booking" class="btn dento-btn booking-btn">Contuct Us</a></div>
+
+<script>
+  $('.items').click(function(){
+    $('#title').html($(this).data('name'));
+    $('#description').html($(this).data('description'));
+    $('#price').html($(this).data('price'));
+    $('#rating').html($(this).data('rating'));
+    $('#count').html($(this).data('count'));
+    
+    document.getElementById("image").src = $(this).data('image');
+    document.getElementById("image").style.backgroundImage="url(" + $(this).data('image'); + ")";
+  })
+</script>
+{% endblock %}

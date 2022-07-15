@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} About Us - Glempshoppe {% endblock %}
+{% block meta_discription %} About page of Glempshoppe {% endblock %}
+{% block content %}
+
+
+  <!-- ***** Breadcrumb Area Start ***** -->  
+  <div class="breadcumb-area 
+  "  style= "
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url('/static/website/img/bg-img/bg1.png') no-repeat;
+  background-size: 100%;">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-12">
+          <h2 class="title">About Us</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcumb--con">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Breadcrumb Area End ***** -->
+
+  <!-- ****** About Us Area Start ******* -->
+  <section class="dento-about-us-area mt-70">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- About Us Thumbnail -->
+        <div class="col-12 col-md-6">
+          <div class="about-us-thumbnail single-blog-item mb-50">
+            <center><img src="{% static 'website/img/bg-img/15.png' %}" alt="" ></center>
+          </div>
+        </div>
+        <!-- About Content -->
+        <div class="col-12 col-md-6">
+          <div class="about-us-content mb-50">
+            <!-- Section Heading -->
+            <div class="section-heading">
+              <h2>About Us</h2>
+              <div class="line"></div>
+            </div>
+            <p>Glemshoppe is a latest addition to the Philippine retail and market scene. 
+              Glemshoppe, one of the newest and fastest-growing shops, has amassed a 
+              sizable market share since its inception in the early this year 2022. 
+              Glemshopppe is located in strategic locations and is rapidly expanding 
+              in provincial areas, winning local support. Its trendy retail experience 
+              and convenient locations have earned it loyal customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ****** About Us Area End ****** -->
+
+
+  <!-- Cool Facts Area Start -->
+  <section class="dento-cta-area">
+    <div class="container">
+      <div class="row">
+        <!-- Cool Facts Area -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-cta text-center mt-50 mb-100">
+            <i class="icon_genius"></i>
+            <h2><span class="counter">20</span></h2>
+            <h5>Years In The Business</h5>
+          </div>
+        </div>
+
+        <!-- Cool Facts Area -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-cta text-center mt-50 mb-100">
+            <i class="icon_heart_alt"></i>
+            <h2><span class="counter">1000</span>+</h2>
+            <h5>Happy Customers</h5>
+          </div>
+        </div>
+
+        <!-- Cool Facts Area -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-cta text-center mt-50 mb-100">
+            <i class="icon_book_alt"></i>
+            <h2><span class="counter">120</span></h2>
+            <h5>Certificate</h5>
+          </div>
+        </div>
+
+        <!-- Cool Facts Area -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="single-cta text-center mt-50 mb-100">
+            <i class="icon_id"></i>
+            <h2><span class="counter">40</span>+</h2>
+            <h5>Employee</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="mb-100 " style=" display: flex; justify-content: center;"><a href="{% url 'home' %}#booking" class="btn dento-btn booking-btn">Contuct Us</a></div>
+
+  <!-- ***** Dento Dentist Area End ***** -->
+
+{% endblock %}
